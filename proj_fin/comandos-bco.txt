@@ -1,0 +1,38 @@
+==== Login com super usuário
+
+sudo su - postgres
+psql
+================
+
+CREATE TABLE proj_final OWNER TO will;
+
+===== sair e logar com will no db criado
+
+psql -h localhost -U will proj_final
+
+===== Criar/alterar tabelas
+
+Usuários:
+CREATE TABLE usuarios (
+id SERIAL PRIMARY KEY UNIQUE,
+nome VARCHAR(255) NOT NULL,
+email VARCHAR(255),
+senha VARCHAR(10));
+
+Posts:
+CREATE TABLE posts(
+id SERIAL PRIMARY KEY,
+titulo VARCHAR (255) NOT NULL,
+conteudo TEXT,
+data_criacao DATE,
+publicado BOOLEAN,
+id_usuario INT NOT NULL);
+
+Alteração da tabela, incluindo restrição de FK:
+ALTER TABLE posts ADD CONSTRAINT fk_dist FOREIGN KEY (id_usuario) REFERENCES usuarios (id) MATCH  FULL;
+
+*** Poderia ter sido colocada no momento da criação da tabela!
+
+
+Levar de proj_fin/admin/post/action para proj_fin/site/index:
+action="../../../site/index.php"

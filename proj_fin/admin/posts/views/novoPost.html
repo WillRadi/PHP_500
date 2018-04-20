@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+	<head>
+		<title>Novo post</title>
+	</head>
+	<body>
+		<h1>Criar nova postagem</h1>
+		<form action="../actions/novoPost.php" method="POST">
+			<p>Título:</p>
+			<input type="text" name="titulo">
+			<p>Conteúdo: </p>
+			<textarea name="conteudo" rows="5" cols="50"></textarea>
+			<p>
+				Publicar?:
+				<input type="radio" name="publicado" value="true"  checked> Sim 
+				<input type="radio" name="publicado" value="false"> Não
+			</p>
+			<br>
+			<input type="submit" value="Enviar">
+			<input type="reset" value="Limpar fomulário">
+		</form>
+	</body>
+</html>
