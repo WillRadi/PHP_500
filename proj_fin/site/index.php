@@ -18,21 +18,21 @@
 			require_once dirname(__DIR__).'/include/funcs/general_functions.php';
 			$posts = findAll('posts');
 		?>
-		<table style="width:100%">
+		<table style="width:100%" border="10">
 			<?php foreach ($posts as $post) : ?>
 				<tr>
 					<th>Titulo</th>
 					<td><?= $post['titulo']?></td>
 				</tr>
 				<tr>
-					<th></th>
+					<th>Conteúdo</th>
 					<td><?= $post['conteudo']?></td>
 				</tr>
 				<tr>
 					<th>Publicado em: </th>
 					<td><?= $post['data_criacao']?></td>
 				</tr>
-				<?php if(!isset($_SESSION['logado'])) :?>
+				<?php if(isset($_SESSION['logado'])) :?>
 					<tr>
 						<th>Ações: </th>
 						<td>
@@ -42,7 +42,6 @@
 							<a href="../admin/posts/views/editViewPost.php?id=<?= $post['id']?>">
 								<button>Alterar post</button>
 							</a>
-							<hr>
 						</td>
 					</tr>
 				<?php endif ?>

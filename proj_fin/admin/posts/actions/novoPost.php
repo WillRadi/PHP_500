@@ -1,5 +1,5 @@
 <?php
-require '../../../include/funcs/general_functions.php';
+require_once '../../../include/funcs/general_functions.php';
 session_start();
 $posts = findAll('posts');
 foreach ($posts as $post) {
